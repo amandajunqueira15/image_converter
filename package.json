@@ -15,5 +15,23 @@
   "devDependencies": {
     "electron": "^44.0.0",
     "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "com.image.converter",
+    "productName": "Image Converter",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "icon/converter.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "icon/converter.ico",
+      "uninstallerIcon": "icon/converter.ico",
+      "createDesktopShortcut": true
+    }
   }
 }

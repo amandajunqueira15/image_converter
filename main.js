@@ -6,6 +6,7 @@ function createWindow() {
         width: 900,
         height: 700,
         autoHideMenuBar: true,
+        icon: path.join(__dirname, 'icon/converter.ico'),
         webPreferences: {
             nodeIntegration: false,
             contextIsolation: true,
