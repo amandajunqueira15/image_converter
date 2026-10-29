@@ -1,5 +1,5 @@
 {
-  "name": "image_converter",
+  "name": "img-converter",
   "version": "1.0.0",
   "description": "Conversor, Compressor e Ajuste de qualidade de imagens",
   "main": "main.js",
@@ -8,20 +8,12 @@
     "dist": "electron-builder --win nsis",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/amandajunqueira15/image_converter.git"
-  },
   "keywords": [],
-  "author": "Amanda Junqueira",
+  "author": "",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
     "electron": "^44.0.0",
     "electron-builder": "^26.15.3"
-  },
-  "bugs": {
-    "url": "https://github.com/amandajunqueira15/image_converter/issues"
-  },
-  "homepage": "https://github.com/amandajunqueira15/image_converter#readme"
+  }
 }

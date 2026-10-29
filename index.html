@@ -4,28 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conversor & Compressor de Imagens</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css">
     <!-- Font Awesome & Libraries -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/heic2any/0.0.4/heic2any.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
-    <body>
-        <div class="app-container">
-            <header class="app-header">
-                <div class="logo">
-                    <i class="fa-solid fa-photo-film"></i>
-                    <h1>MediaConvert</span></h1>
-                </div>
-                <p class="subtitle">Converta e comprima imagens HEIC, PNG, JPG, WebP rapidamente no seu navegador</p>
-            </header>
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="logo">
+                <i class="fa-solid fa-photo-film"></i>
+                <h1>MediaConvert</h1>
+            </div>
+            <p class="subtitle">Converta e comprima imagens HEIC, PNG, JPG e WebP rapidamente no seu navegador</p>
+        </header>
 
-            <main class="main-content">
-                <!-- Dropzone Section -->
-                <section class="dropzone-card" id="dropzone">
-                    <input type="file" id="fileInput" multiple accept="image/*,.heic,.heif" hidden>
-                    <div class="dropzone-content">
-                        <div class="icon-circle">
+        <main class="main-content">
+            <!-- Dropzone Section -->
+            <section class="dropzone-card" id="dropzone">
+                <input type="file" id="fileInput" multiple accept="image/*,.heic,.heif" hidden>
+                <div class="dropzone-content">
+                    <div class="icon-circle">
                         <i class="fa-solid fa-cloud-arrow-up"></i>
                     </div>
                     <h2>Arraste e solte suas imagens aqui</h2>
@@ -33,60 +33,60 @@
                     <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
                         <i class="fa-solid fa-folder-open"></i> Selecionar Arquivos
                     </button>
-                    </div>
-                </section>
+                </div>
+            </section>
 
-                <!-- Conversion & Compression Options -->
-                <section class="controls-bar" id="controlsBar" style="display: none;">
-                    <div class="control-group">
-                        <label for="formatSelect"><i class="fa-solid fa-file-export"></i> Formato:</label>
-                        <select name="formatSelect" class="sect-input">
-                            <option value="image/jpeg">JPEG (.jpg)</option>
-                            <option value="image/webp" selected>WebP (.webp - Recomendado)</option>
-                            <option value="image/png">PNG (.png)</option>
-                        </select>
-                    </div>
+            <!-- Conversion & Compression Options -->
+            <section class="controls-bar" id="controlsBar" style="display: none;">
+                <div class="control-group">
+                    <label for="formatSelect"><i class="fa-solid fa-file-export"></i> Formato:</label>
+                    <select id="formatSelect" class="select-input">
+                        <option value="image/jpeg">JPEG (.jpg)</option>
+                        <option value="image/webp" selected>WebP (.webp - Recomendado)</option>
+                        <option value="image/png">PNG (.png)</option>
+                    </select>
+                </div>
 
-                    <div class="control-group">
-                        <label for="compressMode"><i class="fa-solid fa-compress"></i> Compressão:</label>
-                        <select id="compressMode" class="select-input">
-                            <option value="smart" selected>Compressão Inteligente (~70% menor)</option>
-                            <option value="custom">Manual (Ajustar Qualidade)</option>
-                        </select>
-                    </div>
+                <div class="control-group">
+                    <label for="compressMode"><i class="fa-solid fa-compress"></i> Compressão:</label>
+                    <select id="compressMode" class="select-input">
+                        <option value="smart" selected>Compressão Inteligente (~70% menor)</option>
+                        <option value="custom">Manual (Ajustar Qualidade)</option>
+                    </select>
+                </div>
 
-                    <div class="control-group" id="qualitygroup" style="display: none;">
-                        <label for="qualityRange"><i class="fa-solid fa-sliders"></i> Qualidade: <span id="qualityVal">75%</span></label>
-                        <input type="range" id="qualityRange" min="10" max="100" value="75">
-                    </div>
+                <div class="control-group" id="qualityGroup" style="display: none;">
+                    <label for="qualityRange"><i class="fa-solid fa-sliders"></i> Qualidade: <span id="qualityVal">75%</span></label>
+                    <input type="range" id="qualityRange" min="10" max="100" value="75">
+                </div>
 
-                    <div class="action-buttons">
-                        <button class="btn btn-secondary" id="clearBtn">
-                            <i class="fa-solid fa-trash-can"></i> Limpar
-                        </button>
-                        <button class="btn btn-success" id="convertAllBtn">
-                            <i class="fa-solid fa-bolt"></i> Processar Todos
-                        </button>
-                        <button class="btn btn-accent" id="downloadZipBtn" style="display: none;">
-                            <i class="fa-solid fa-file-zipper"></i> Baixar ZIP
-                        </button>
-                    </div>
-                </section>
+                <div class="action-buttons">
+                    <button class="btn btn-secondary" id="clearBtn">
+                        <i class="fa-solid fa-trash-can"></i> Limpar
+                    </button>
+                    <button class="btn btn-success" id="convertAllBtn">
+                        <i class="fa-solid fa-bolt"></i> Processar Todos
+                    </button>
+                    <button class="btn btn-accent" id="downloadZipBtn" style="display: none;">
+                        <i class="fa-solid fa-file-zipper"></i> Baixar ZIP
+                    </button>
+                </div>
+            </section>
 
-                <!-- File List / Preview Section -->
-                <section class="file-list-container" id="fileListContainer" style="display: none;">
-                    <div class="section-title">
-                        <h3><i class="fa-solid fa-images"></i> Arquivos na Fila (<span id="fileCount">0</span>)</h3>
-                    </div>
-                    <div class="file-grid" id="fileGrid"></div>
-                </section>
-            </main>
+            <!-- File List / Preview Section -->
+            <section class="file-list-container" id="fileListContainer" style="display: none;">
+                <div class="section-title">
+                    <h3><i class="fa-solid fa-images"></i> Arquivos na Fila (<span id="fileCount">0</span>)</h3>
+                </div>
+                <div class="file-grid" id="fileGrid"></div>
+            </section>
+        </main>
 
-            <footer class="app-footer">
-                <p>&copy; 2026 MediaConvert. Processamento 100% local e seguro no seu navegador.</p>
-            </footer>
-        </div>
+        <footer class="app-footer">
+            <p>&copy; 2026 MediaConvert - Processamento 100% local e seguro no seu navegador.</p>
+        </footer>
+    </div>
 
-        <script src="./app.js"></script>
-    </body>
+    <script src="./app.js"></script>
+</body>
 </html>

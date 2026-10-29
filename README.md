@@ -11,3 +11,5 @@
 - Possibilidade de converter imagens para Webp, JPG e PNG;
 - Possibilidade de baixar tudo em zip
 
+### Download do programa:
+- [Windows]()
