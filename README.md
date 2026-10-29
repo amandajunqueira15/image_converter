@@ -12,4 +12,15 @@
 - Possibilidade de baixar tudo em zip
 
 ### Download do programa:
-- [Windows]()
+<div align="center">
+
+  # 🖼️ Image Converter
+  
+  Um aplicativo de desktop rápido e moderno para conversão de imagens construído com Electron.
+
+  <!-- Badge de Download Direto para a última Release -->
+  <a href="https://github.com/amandajunqueira15/image_converter/releases/latest">
+    <img src="https://img.shields.io/github/v/release/amandajunqueira15/image_converter?style=for-the-badge&color=blue&logo=github" alt="Download Release">
+  </a>
+
+</div>
